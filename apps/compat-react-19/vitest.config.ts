@@ -12,6 +12,7 @@ export default defineConfig({
       react: resolve(root, 'node_modules/react'),
       'react-dom': resolve(root, 'node_modules/react-dom'),
     },
+    conditions: ['@repo/source'],
     preserveSymlinks: true,
   },
   test: {

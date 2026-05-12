@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": true,
+    "customConditions": ["@repo/source"],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,

@@ -100,10 +100,7 @@ importers:
         version: 17.0.2(react@17.0.2)
       react-use-hook-kit:
         specifier: workspace:*
-        version: file:packages/react-hook-kit(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
-    dependenciesMeta:
-      react-use-hook-kit:
-        injected: true
+        version: link:../../packages/react-hook-kit
     devDependencies:
       '@testing-library/react-hooks':
         specifier: 'catalog:'
@@ -134,10 +131,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-use-hook-kit:
         specifier: workspace:*
-        version: file:packages/react-hook-kit(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-    dependenciesMeta:
-      react-use-hook-kit:
-        injected: true
+        version: link:../../packages/react-hook-kit
     devDependencies:
       '@testing-library/react':
         specifier: 'catalog:'
@@ -172,9 +166,6 @@ importers:
       react-use-hook-kit:
         specifier: workspace:*
         version: link:../../packages/react-hook-kit
-    dependenciesMeta:
-      react-use-hook-kit:
-        injected: true
     devDependencies:
       '@testing-library/react':
         specifier: 'catalog:'
@@ -3365,12 +3356,6 @@ packages:
   react-refresh@0.17.0:
     resolution: {integrity: sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ==}
     engines: {node: '>=0.10.0'}
-
-  react-use-hook-kit@file:packages/react-hook-kit:
-    resolution: {directory: packages/react-hook-kit, type: directory}
-    peerDependencies:
-      react: '>=17 <20'
-      react-dom: '>=17 <20'
 
   react@17.0.2:
     resolution: {integrity: sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==}
@@ -7453,16 +7438,6 @@ snapshots:
   react-is@17.0.2: {}
 
   react-refresh@0.17.0: {}
-
-  react-use-hook-kit@file:packages/react-hook-kit(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
-    dependencies:
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
-
-  react-use-hook-kit@file:packages/react-hook-kit(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
 
   react@17.0.2:
     dependencies:

@@ -6,6 +6,7 @@
     "moduleResolution": "Bundler",
     "target": "ES2022",
     "isolatedModules": true,
+    "customConditions": ["@repo/source"],
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
