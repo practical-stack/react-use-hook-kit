@@ -1,0 +1,4 @@
+interface:
+  display_name: "Git Draft PR"
+  short_description: "Create or update GitHub draft PRs."
+  default_prompt: "Use this skill to create or update a draft GitHub PR for the current branch."
