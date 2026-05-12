@@ -14,7 +14,6 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "allowJs": true,
-    "noEmit": true,
-    "customConditions": ["@repo/source"]
+    "noEmit": true
   }
 }

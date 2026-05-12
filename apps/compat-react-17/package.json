@@ -1,0 +1,27 @@
+{
+  "name": "@repo/compat-react-17",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc -b"
+  },
+  "dependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-use-hook-kit": "workspace:*"
+  },
+  "devDependencies": {
+    "@testing-library/react-hooks": "catalog:",
+    "@types/react": "^17.0.89",
+    "@types/react-dom": "^17.0.26",
+    "jsdom": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "dependenciesMeta": {
+    "react-use-hook-kit": {
+      "injected": true
+    }
+  }
+}

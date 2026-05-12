@@ -1,0 +1,28 @@
+{
+  "name": "@repo/compat-react-18",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc -b"
+  },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-use-hook-kit": "workspace:*"
+  },
+  "devDependencies": {
+    "@testing-library/react": "catalog:",
+    "@types/react": "^18.3.27",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "catalog:",
+    "jsdom": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "dependenciesMeta": {
+    "react-use-hook-kit": {
+      "injected": true
+    }
+  }
+}

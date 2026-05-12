@@ -1,89 +1,76 @@
-# turborepo-pnpm-typescript-mono-template
+# react-use-hook-kit
 
-Lean Turborepo + pnpm + TypeScript monorepo with a TanStack Start app and a Next.js 16 app pre-wired, plus a shared `sample` package. Default scope: `@repo`.
+Small, typed React hooks for everyday UI state. The package is built as an
+ESM-first npm library with CommonJS compatibility and subpath exports for
+tree-shaking.
 
-## Quick start
+## Install
 
 ```bash
-git clone <this-repo> my-monorepo
-cd my-monorepo
-node scripts/init.mts                     # removes template-only docs/
-pnpm install
-pnpm check
-pnpm --filter @repo/tanstack-sample dev   # port 3001
-pnpm --filter @repo/next-sample dev       # port 3002
+pnpm add react-use-hook-kit
 ```
 
-## What's included
+`react-use-hook-kit` has peer dependencies on `react >=17 <20` and
+`react-dom >=17 <20`.
 
-| Tool            | Version | Purpose                                   |
-| --------------- | ------- | ----------------------------------------- |
-| Turborepo       | ^2.9    | Task runner and cache                     |
-| pnpm workspaces | v10     | `hoist=false`, catalog protocol           |
-| TypeScript      | 6.x     | Strict, ESNext, Bundler resolution        |
-| Vitest          | ^4.1    | Unit testing                              |
-| oxlint          | ^1.60   | Linting (drop-in ESLint replacement)      |
-| oxfmt           | ^0.45   | Formatting (drop-in Prettier replacement) |
-| Sheriff         | ^0.19   | Import boundary enforcement               |
-| Knip            | ^6.4    | Dead code / unused dep detection          |
-| TanStack Start  | ^1.168  | `apps/tanstack-sample` (React 19 + Vite)  |
-| Next.js         | ^16.0   | `apps/next-sample` (App Router)           |
+## Hooks
 
-## Structure
+```ts
+import {
+  useBoolean,
+  useCounter,
+  useDebounce,
+  useLocalStorage,
+  useToggle,
+} from 'react-use-hook-kit'
+```
+
+Each hook also has a subpath export:
+
+```ts
+import { useBoolean } from 'react-use-hook-kit/use-boolean'
+import { useCounter } from 'react-use-hook-kit/use-counter'
+import { useDebounce } from 'react-use-hook-kit/use-debounce'
+import { useLocalStorage } from 'react-use-hook-kit/use-local-storage'
+import { useToggle } from 'react-use-hook-kit/use-toggle'
+```
+
+## Workspace
 
 ```text
 apps/
-  tanstack-sample/   # TanStack Start app (port 3001)
-  next-sample/       # Next.js 16 app (port 3002)
+  docs/              Astro documentation app with interactive demos
+  compat-react-17/   React 17 compatibility fixture
+  compat-react-18/   React 18 compatibility fixture
+  compat-react-19/   React 19 compatibility fixture
 packages/
-  sample/            # shared library, source-level export
-scripts/
-  init.mts           # one-shot: deletes template-only docs/
-  remove-app.mts     # removes an app + prunes all references (accepts `all`)
-  remove-all.mts     # wipes every app + package, resets configs to a bare shell
+  react-use-hook-kit/    Publishable library package
 ```
 
 ## Commands
 
 ```bash
+pnpm build             # tsdown JS bundles + TypeScript declarations
+pnpm dev               # Astro docs app
+pnpm test              # library tests + React compatibility fixtures
+pnpm typecheck         # package, docs, fixtures, and scripts
 pnpm lint              # oxlint
-pnpm format            # oxfmt (write)
-pnpm format:check      # oxfmt --check
-pnpm typecheck         # turbo run typecheck
-pnpm test              # turbo run test
-pnpm sheriff           # architectural boundary check
-pnpm knip              # unused exports / deps
-pnpm check             # lint + format:check + typecheck + test + sheriff + knip
-pnpm build             # turbo run build
-pnpm dev               # turbo run dev
+pnpm format            # oxfmt write
+pnpm format:check      # oxfmt check
+pnpm sheriff           # import boundary check
+pnpm knip              # unused files/dependencies check
+pnpm check             # full validation pipeline
 ```
 
-## Live Types
+## Build
 
-`@repo/sample` exports `./src/index.ts` directly, so apps consume the package source without a package build step. TypeScript uses `moduleResolution: "Bundler"` and `customConditions: ["@repo/source"]`; Vite also registers `@repo/source`. Next.js uses `transpilePackages: ['@repo/sample']` so workspace TypeScript under `node_modules` is compiled by Next.
+The library builds from `packages/react-use-hook-kit` with tsdown:
 
-See [docs/](docs/README.md) for the setup guide: pnpm workspace, TypeScript module resolution, Live Types, and Turborepo + tsconfig references.
+- ESM output: `dist/*.js`
+- CommonJS output: `dist/*.cjs`
+- Type declarations: `dist/*.d.ts`
 
-## Customizing scope / package name
-
-The template ships with `@repo/*`. To rename:
-
-```bash
-# Bulk rename via your editor's find-and-replace:
-#   @repo/        -> @yourscope/
-#   sample        -> yourpkg    (rename packages/sample/ dir too)
-```
-
-## Removing an unused app
-
-```bash
-node scripts/remove-app.mts tanstack-sample
-node scripts/remove-app.mts next-sample
-node scripts/remove-app.mts all
-node scripts/remove-all.mts
-pnpm install
-pnpm check
-```
+React and React DOM remain external peer dependencies.
 
 ## License
 

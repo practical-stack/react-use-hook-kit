@@ -1,0 +1,80 @@
+name: Publish by PR Comment
+
+on:
+  issue_comment:
+    types:
+      - created
+
+jobs:
+  publish:
+    if: github.event.issue.pull_request && startsWith(github.event.comment.body, '/publish')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      id-token: write
+
+    steps:
+      - name: Get PR branch
+        id: pr
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            });
+            core.setOutput('ref', pr.data.head.ref);
+            core.setOutput('sha', pr.data.head.sha);
+
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.pr.outputs.ref }}
+          fetch-depth: 0
+          token: ${{ secrets.GH_ACCESS_TOKEN }}
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Package
+        run: pnpm --filter react-use-hook-kit run build
+
+      - name: Set Variables
+        id: vars
+        run: |
+          echo "base_version=$(node -p "require('./packages/react-hook-kit/package.json').version")" >> $GITHUB_OUTPUT
+
+      - name: Publish to npm
+        id: publish
+        run: |
+          VERSION=${{ steps.vars.outputs.base_version }}-pr${{ github.event.issue.number }}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          cd packages/react-hook-kit
+          npm version $VERSION --no-git-tag-version
+          npm publish --access public --tag pr${{ github.event.issue.number }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Comment on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const version = '${{ steps.publish.outputs.version }}';
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `Published \`react-use-hook-kit@${version}\` to npm.\n\nInstall with:\n\`\`\`bash\npnpm add react-use-hook-kit@${version}\n\`\`\``
+            });

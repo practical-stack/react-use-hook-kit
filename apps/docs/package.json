@@ -1,0 +1,24 @@
+{
+  "name": "@repo/docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "astro build",
+    "dev": "astro dev --host 0.0.0.0 --port 3000",
+    "preview": "astro preview --host 0.0.0.0 --port 3000",
+    "typecheck": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/react": "catalog:",
+    "astro": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "react-use-hook-kit": "workspace:*"
+  },
+  "devDependencies": {
+    "@astrojs/check": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "typescript": "catalog:"
+  }
+}

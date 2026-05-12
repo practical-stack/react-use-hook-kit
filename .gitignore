@@ -4,20 +4,9 @@ node_modules
 # Build outputs
 dist
 .output
+.astro
 tmp
 *.tsbuildinfo
-
-# TanStack Start
-# routeTree.gen.ts is checked in so `typecheck` works without a prior build;
-# `vite dev`/`vite build` regenerates it on every run.
-.tanstack
-.vinxi
-.nitro
-
-# Next.js
-.next/
-next-env.d.ts
-!apps/*/next-env.d.ts
 
 # Environment & secrets
 .env
