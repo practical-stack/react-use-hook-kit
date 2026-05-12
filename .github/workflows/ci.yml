@@ -53,5 +53,8 @@ jobs:
       - name: Build Package
         run: pnpm --filter react-use-hook-kit run build
 
+      - name: Sync injected workspace dependencies
+        run: pnpm install --frozen-lockfile --offline
+
       - name: Run command
         run: ${{ matrix.command }}
