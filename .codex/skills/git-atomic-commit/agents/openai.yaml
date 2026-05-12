@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Git Atomic Commit'
+  short_description: 'Create purpose-based atomic commits.'
+  default_prompt: 'Use this skill to split my current Git changes into purpose-based atomic commits.'
