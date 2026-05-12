@@ -17,6 +17,12 @@
       "rules": {
         "no-console": "off"
       }
+    },
+    {
+      "files": ["**/*.astro"],
+      "rules": {
+        "import/no-unassigned-import": "off"
+      }
     }
   ],
   "env": {
@@ -29,6 +35,8 @@
     "dist",
     ".output",
     ".next",
+    ".astro",
+    "**/.astro",
     ".omc",
     "*.gen.ts",
     "routeTree.gen.ts"

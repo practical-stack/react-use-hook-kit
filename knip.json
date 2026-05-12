@@ -1,20 +1,32 @@
 {
   "$schema": "https://unpkg.com/knip@6/schema.json",
-  "ignoreFiles": ["sheriff.config.ts", "scripts/*.mts"],
-  "ignoreDependencies": ["tailwindcss", "@testing-library/react"],
+  "ignoreFiles": ["sheriff.config.ts"],
+  "ignoreIssues": {
+    "packages/react-hook-kit/src/index.ts": ["types"]
+  },
   "workspaces": {
     ".": {
-      "ignoreDependencies": ["@vitest/coverage-v8", "vitest"]
+      "ignoreDependencies": ["@astrojs/check", "@vitest/coverage-v8", "vitest"]
     },
-    "apps/tanstack-sample": {
-      "entry": ["src/router.tsx", "src/routes/**/*.tsx"],
+    "apps/docs": {
+      "entry": ["src/pages/**/*.astro", "src/components/**/*.tsx"],
+      "project": ["src/**/*.{astro,ts,tsx}"]
+    },
+    "apps/compat-react-17": {
+      "entry": ["src/**/*.test.ts"],
       "project": ["src/**/*.{ts,tsx}"]
     },
-    "apps/next-sample": {
-      "entry": ["src/app/**/*.{ts,tsx}"],
+    "apps/compat-react-18": {
+      "entry": ["src/**/*.test.ts"],
       "project": ["src/**/*.{ts,tsx}"]
     },
-    "packages/sample": {
+    "apps/compat-react-19": {
+      "entry": ["src/**/*.test.ts"],
+      "project": ["src/**/*.{ts,tsx}"]
+    },
+    "packages/react-hook-kit": {
+      "entry": ["src/index.ts", "src/use-*.ts"],
+      "project": ["src/**/*.{ts,tsx}"],
       "includeEntryExports": true
     }
   }

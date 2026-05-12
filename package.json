@@ -1,5 +1,5 @@
 {
-  "name": "@repo/source",
+  "name": "react-hook-kit-source",
   "private": true,
   "scripts": {
     "lint": "oxlint -c .oxlintrc.json",
@@ -8,16 +8,19 @@
     "format:check": "oxfmt -c .oxfmtrc.json --check",
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "typecheck": "pnpm typecheck:scripts && turbo run typecheck",
-    "typecheck:scripts": "tsc -p tsconfig.scripts.json",
+    "typecheck": "turbo run typecheck",
     "test": "turbo run test",
     "sheriff": "sheriff verify",
     "knip": "knip",
-    "check": "pnpm lint && pnpm format:check && pnpm typecheck && pnpm test && pnpm sheriff && pnpm knip"
+    "check": "pnpm lint && pnpm format:check && pnpm typecheck && pnpm test && pnpm sheriff && pnpm knip",
+    "changeset:version": "pnpm changeset version",
+    "changeset:publish": "pnpm changeset publish"
   },
   "devDependencies": {
+    "@astrojs/check": "catalog:",
+    "@changesets/changelog-github": "^0.7.0",
+    "@changesets/cli": "^2.31.0",
     "@softarc/sheriff-core": "^0.19.6",
-    "@types/node": "catalog:",
     "@vitest/coverage-v8": "catalog:",
     "knip": "^6.4.1",
     "oxfmt": "^0.45.0",

@@ -13,6 +13,8 @@
     "dist",
     ".output",
     ".next",
+    ".astro",
+    "**/.astro",
     ".omc",
     "pnpm-lock.yaml",
     "*.md",
