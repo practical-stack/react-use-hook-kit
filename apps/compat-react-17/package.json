@@ -18,10 +18,5 @@
     "jsdom": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:"
-  },
-  "dependenciesMeta": {
-    "react-use-hook-kit": {
-      "injected": true
-    }
   }
 }
