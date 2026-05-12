@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a bug in the template
+about: Report a bug in react-hook-kit
 labels: bug
 ---
 
@@ -27,4 +27,6 @@ labels: bug
 - Node version:
 - pnpm version:
 - OS:
-- Framework overlay (none/tanstack-start/next):
+- React version:
+- react-hook-kit version:
+- Runtime/framework:

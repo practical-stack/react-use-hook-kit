@@ -2,17 +2,39 @@ name: CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
+    types: [opened, synchronize, reopened]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   actions: read
   contents: read
 
 jobs:
-  main:
+  ci:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        command:
+          [
+            'pnpm lint',
+            'pnpm format:check',
+            'pnpm typecheck',
+            'pnpm test',
+            'pnpm sheriff',
+            'pnpm knip',
+            'pnpm --filter react-hook-kit run build',
+            'pnpm --filter react-hook-kit run test:attw',
+            'pnpm --filter react-hook-kit run test:publint',
+            'pnpm --filter @repo/compat-react-17 run test',
+            'pnpm --filter @repo/compat-react-18 run test',
+            'pnpm --filter @repo/compat-react-19 run test',
+          ]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -20,15 +42,16 @@ jobs:
           fetch-depth: 0
 
       - uses: pnpm/action-setup@v4
-        with:
-          version: 10
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version-file: '.nvmrc'
           cache: 'pnpm'
 
       - run: pnpm install --frozen-lockfile
 
-      - run: pnpm check
-      - run: pnpm build
+      - name: Build Package
+        run: pnpm --filter react-hook-kit run build
+
+      - name: Run command
+        run: ${{ matrix.command }}

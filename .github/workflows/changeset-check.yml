@@ -1,0 +1,39 @@
+name: Changeset Check
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+
+jobs:
+  changeset-check:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for changeset
+        run: |
+          CHANGED=$(git diff --name-only origin/main...HEAD)
+
+          PACKAGE_CHANGED=$(echo "$CHANGED" | grep -Ec '^(packages/react-hook-kit/src/|packages/react-hook-kit/package\.json|packages/react-hook-kit/tsdown\.config\.ts)' || true)
+
+          if [ "$PACKAGE_CHANGED" -gt 0 ]; then
+            CHANGESET_FILES=$(echo "$CHANGED" | grep -Ec '^\.changeset/.*\.md$' || true)
+
+            if [ "$CHANGESET_FILES" -eq 0 ]; then
+              echo "::error::This PR changes the published react-hook-kit package but does not include a changeset."
+              echo ""
+              echo "Add one with:"
+              echo "  pnpm changeset"
+              exit 1
+            fi
+
+            echo "Changeset found."
+          else
+            echo "No published package changes detected."
+          fi
