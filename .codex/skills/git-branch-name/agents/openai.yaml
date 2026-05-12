@@ -1,4 +1,4 @@
 interface:
-  display_name: "Git Branch Name"
-  short_description: "Generate conventional branch names."
-  default_prompt: "Use this skill to generate a safe conventional branch name and checkout command from my task description."
+  display_name: 'Git Branch Name'
+  short_description: 'Generate conventional branch names.'
+  default_prompt: 'Use this skill to generate a safe conventional branch name and checkout command from my task description.'
