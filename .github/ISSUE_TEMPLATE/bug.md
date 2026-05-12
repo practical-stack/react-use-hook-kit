@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a bug in react-hook-kit
+about: Report a bug in react-use-hook-kit
 labels: bug
 ---
 
@@ -28,5 +28,5 @@ labels: bug
 - pnpm version:
 - OS:
 - React version:
-- react-hook-kit version:
+- react-use-hook-kit version:
 - Runtime/framework:

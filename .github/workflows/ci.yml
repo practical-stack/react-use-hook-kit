@@ -28,9 +28,9 @@ jobs:
             'pnpm test',
             'pnpm sheriff',
             'pnpm knip',
-            'pnpm --filter react-hook-kit run build',
-            'pnpm --filter react-hook-kit run test:attw',
-            'pnpm --filter react-hook-kit run test:publint',
+            'pnpm --filter react-use-hook-kit run build',
+            'pnpm --filter react-use-hook-kit run test:attw',
+            'pnpm --filter react-use-hook-kit run test:publint',
             'pnpm --filter @repo/compat-react-17 run test',
             'pnpm --filter @repo/compat-react-18 run test',
             'pnpm --filter @repo/compat-react-19 run test',
@@ -51,7 +51,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - name: Build Package
-        run: pnpm --filter react-hook-kit run build
+        run: pnpm --filter react-use-hook-kit run build
 
       - name: Run command
         run: ${{ matrix.command }}

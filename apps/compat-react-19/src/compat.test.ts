@@ -1,7 +1,7 @@
 import { act, renderHook } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import { useBoolean, useCounter } from 'react-hook-kit'
-import { useToggle } from 'react-hook-kit/use-toggle'
+import { useBoolean, useCounter } from 'react-use-hook-kit'
+import { useToggle } from 'react-use-hook-kit/use-toggle'
 
 describe('React 19 compatibility', () => {
   it('runs root and subpath hook exports', () => {

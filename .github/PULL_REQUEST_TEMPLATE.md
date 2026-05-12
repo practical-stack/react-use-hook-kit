@@ -18,8 +18,8 @@
 
 - [ ] Unit tests pass (`pnpm test`)
 - [ ] Type checks pass (`pnpm typecheck`)
-- [ ] Package build passes (`pnpm --filter react-hook-kit run build`)
-- [ ] Package publish checks pass (`pnpm --filter react-hook-kit run test:attw`, `pnpm --filter react-hook-kit run test:publint`)
+- [ ] Package build passes (`pnpm --filter react-use-hook-kit run build`)
+- [ ] Package publish checks pass (`pnpm --filter react-use-hook-kit run test:attw`, `pnpm --filter react-use-hook-kit run test:publint`)
 
 ## Type of Change
 

@@ -38,7 +38,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build Package
-        run: pnpm --filter react-hook-kit run build
+        run: pnpm --filter react-use-hook-kit run build
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets

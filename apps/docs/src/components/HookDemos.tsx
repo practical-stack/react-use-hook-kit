@@ -1,4 +1,4 @@
-import { useBoolean, useCounter, useDebounce, useLocalStorage, useToggle } from 'react-hook-kit'
+import { useBoolean, useCounter, useDebounce, useLocalStorage, useToggle } from 'react-use-hook-kit'
 import { useState } from 'react'
 
 export function HookDemos() {
@@ -7,7 +7,7 @@ export function HookDemos() {
   const counter = useCounter(0, { max: 10, min: 0 })
   const [query, setQuery] = useState('')
   const debouncedQuery = useDebounce(query, 350)
-  const storage = useLocalStorage('react-hook-kit-docs-theme', 'system')
+  const storage = useLocalStorage('react-use-hook-kit-docs-theme', 'system')
 
   return (
     <div className="demo-grid">

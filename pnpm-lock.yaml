@@ -98,11 +98,11 @@ importers:
       react-dom:
         specifier: 17.0.2
         version: 17.0.2(react@17.0.2)
-      react-hook-kit:
+      react-use-hook-kit:
         specifier: workspace:*
         version: file:packages/react-hook-kit(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
     dependenciesMeta:
-      react-hook-kit:
+      react-use-hook-kit:
         injected: true
     devDependencies:
       '@testing-library/react-hooks':
@@ -132,11 +132,11 @@ importers:
       react-dom:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
-      react-hook-kit:
+      react-use-hook-kit:
         specifier: workspace:*
         version: file:packages/react-hook-kit(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     dependenciesMeta:
-      react-hook-kit:
+      react-use-hook-kit:
         injected: true
     devDependencies:
       '@testing-library/react':
@@ -169,11 +169,11 @@ importers:
       react-dom:
         specifier: 'catalog:'
         version: 19.2.6(react@19.2.6)
-      react-hook-kit:
+      react-use-hook-kit:
         specifier: workspace:*
         version: link:../../packages/react-hook-kit
     dependenciesMeta:
-      react-hook-kit:
+      react-use-hook-kit:
         injected: true
     devDependencies:
       '@testing-library/react':
@@ -212,7 +212,7 @@ importers:
       react-dom:
         specifier: 'catalog:'
         version: 19.2.6(react@19.2.6)
-      react-hook-kit:
+      react-use-hook-kit:
         specifier: workspace:*
         version: link:../../packages/react-hook-kit
     devDependencies:
@@ -3359,18 +3359,18 @@ packages:
     peerDependencies:
       react: '>=16.13.1'
 
-  react-hook-kit@file:packages/react-hook-kit:
-    resolution: {directory: packages/react-hook-kit, type: directory}
-    peerDependencies:
-      react: '>=17 <20'
-      react-dom: '>=17 <20'
-
   react-is@17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
 
   react-refresh@0.17.0:
     resolution: {integrity: sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ==}
     engines: {node: '>=0.10.0'}
+
+  react-use-hook-kit@file:packages/react-hook-kit:
+    resolution: {directory: packages/react-hook-kit, type: directory}
+    peerDependencies:
+      react: '>=17 <20'
+      react-dom: '>=17 <20'
 
   react@17.0.2:
     resolution: {integrity: sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==}
@@ -7450,19 +7450,19 @@ snapshots:
       '@babel/runtime': 7.29.2
       react: 17.0.2
 
-  react-hook-kit@file:packages/react-hook-kit(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
+  react-is@17.0.2: {}
+
+  react-refresh@0.17.0: {}
+
+  react-use-hook-kit@file:packages/react-hook-kit(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
     dependencies:
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
 
-  react-hook-kit@file:packages/react-hook-kit(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-use-hook-kit@file:packages/react-hook-kit(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-
-  react-is@17.0.2: {}
-
-  react-refresh@0.17.0: {}
 
   react@17.0.2:
     dependencies:

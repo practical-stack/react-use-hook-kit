@@ -13,7 +13,7 @@
     "astro": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
-    "react-hook-kit": "workspace:*"
+    "react-use-hook-kit": "workspace:*"
   },
   "devDependencies": {
     "@astrojs/check": "catalog:",

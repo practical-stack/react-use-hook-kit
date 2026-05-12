@@ -1,4 +1,4 @@
-# react-hook-kit
+# react-use-hook-kit
 
 Small, typed React hooks for everyday UI state. The package is built as an
 ESM-first npm library with CommonJS compatibility and subpath exports for
@@ -7,10 +7,10 @@ tree-shaking.
 ## Install
 
 ```bash
-pnpm add react-hook-kit
+pnpm add react-use-hook-kit
 ```
 
-`react-hook-kit` has peer dependencies on `react >=17 <20` and
+`react-use-hook-kit` has peer dependencies on `react >=17 <20` and
 `react-dom >=17 <20`.
 
 ## Hooks
@@ -22,17 +22,17 @@ import {
   useDebounce,
   useLocalStorage,
   useToggle,
-} from 'react-hook-kit'
+} from 'react-use-hook-kit'
 ```
 
 Each hook also has a subpath export:
 
 ```ts
-import { useBoolean } from 'react-hook-kit/use-boolean'
-import { useCounter } from 'react-hook-kit/use-counter'
-import { useDebounce } from 'react-hook-kit/use-debounce'
-import { useLocalStorage } from 'react-hook-kit/use-local-storage'
-import { useToggle } from 'react-hook-kit/use-toggle'
+import { useBoolean } from 'react-use-hook-kit/use-boolean'
+import { useCounter } from 'react-use-hook-kit/use-counter'
+import { useDebounce } from 'react-use-hook-kit/use-debounce'
+import { useLocalStorage } from 'react-use-hook-kit/use-local-storage'
+import { useToggle } from 'react-use-hook-kit/use-toggle'
 ```
 
 ## Workspace
@@ -44,7 +44,7 @@ apps/
   compat-react-18/   React 18 compatibility fixture
   compat-react-19/   React 19 compatibility fixture
 packages/
-  react-hook-kit/    Publishable library package
+  react-use-hook-kit/    Publishable library package
 ```
 
 ## Commands
@@ -64,7 +64,7 @@ pnpm check             # full validation pipeline
 
 ## Build
 
-The library builds from `packages/react-hook-kit` with tsdown:
+The library builds from `packages/react-use-hook-kit` with tsdown:
 
 - ESM output: `dist/*.js`
 - CommonJS output: `dist/*.cjs`

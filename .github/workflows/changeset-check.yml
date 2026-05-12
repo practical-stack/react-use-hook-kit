@@ -26,7 +26,7 @@ jobs:
             CHANGESET_FILES=$(echo "$CHANGED" | grep -Ec '^\.changeset/.*\.md$' || true)
 
             if [ "$CHANGESET_FILES" -eq 0 ]; then
-              echo "::error::This PR changes the published react-hook-kit package but does not include a changeset."
+              echo "::error::This PR changes the published react-use-hook-kit package but does not include a changeset."
               echo ""
               echo "Add one with:"
               echo "  pnpm changeset"

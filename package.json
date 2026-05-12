@@ -1,5 +1,5 @@
 {
-  "name": "react-hook-kit-source",
+  "name": "react-use-hook-kit-source",
   "private": true,
   "scripts": {
     "lint": "oxlint -c .oxlintrc.json",

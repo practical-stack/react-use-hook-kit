@@ -49,7 +49,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build Package
-        run: pnpm --filter react-hook-kit run build
+        run: pnpm --filter react-use-hook-kit run build
 
       - name: Set Variables
         id: vars
@@ -76,5 +76,5 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: `Published \`react-hook-kit@${version}\` to npm.\n\nInstall with:\n\`\`\`bash\npnpm add react-hook-kit@${version}\n\`\`\``
+              body: `Published \`react-use-hook-kit@${version}\` to npm.\n\nInstall with:\n\`\`\`bash\npnpm add react-use-hook-kit@${version}\n\`\`\``
             });

@@ -1,7 +1,7 @@
 import { act, renderHook } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
-import { useLocalStorage, useToggle } from 'react-hook-kit'
-import { useDebounce } from 'react-hook-kit/use-debounce'
+import { useLocalStorage, useToggle } from 'react-use-hook-kit'
+import { useDebounce } from 'react-use-hook-kit/use-debounce'
 
 describe('React 18 compatibility', () => {
   it('runs root and subpath hook exports', () => {

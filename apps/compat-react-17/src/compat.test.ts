@@ -1,7 +1,7 @@
 import { act, renderHook } from '@testing-library/react-hooks'
 import { describe, expect, it } from 'vitest'
-import { useCounter } from 'react-hook-kit'
-import { useBoolean } from 'react-hook-kit/use-boolean'
+import { useCounter } from 'react-use-hook-kit'
+import { useBoolean } from 'react-use-hook-kit/use-boolean'
 
 describe('React 17 compatibility', () => {
   it('runs root and subpath hook exports', () => {
