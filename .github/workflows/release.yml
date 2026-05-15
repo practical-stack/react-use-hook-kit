@@ -24,10 +24,12 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GH_ACCESS_TOKEN }}
 
+      - name: Setup mise
+        uses: jdx/mise-action@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install pnpm
