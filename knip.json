@@ -2,7 +2,9 @@
   "$schema": "https://unpkg.com/knip@6/schema.json",
   "ignoreFiles": ["sheriff.config.ts"],
   "ignoreIssues": {
-    "packages/react-hook-kit/src/index.ts": ["types"]
+    "packages/react-hook-kit/src/index.ts": ["types"],
+    "packages/react-hooks-testing/src/create-hook-renderer.ts": ["types"],
+    "packages/react-hooks-testing/src/index.ts": ["exports", "types"]
   },
   "workspaces": {
     ".": {
@@ -14,6 +16,10 @@
     },
     "packages/react-hook-kit": {
       "entry": ["src/use-*.ts"],
+      "project": ["src/**/*.{ts,tsx}"],
+      "includeEntryExports": true
+    },
+    "packages/react-hooks-testing": {
       "project": ["src/**/*.{ts,tsx}"],
       "includeEntryExports": true
     }

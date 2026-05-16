@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Test Convention'
+  short_description: 'Write unit tests using project conventions.'
+  default_prompt: 'Use $test-convention to add or review unit tests for this target.'

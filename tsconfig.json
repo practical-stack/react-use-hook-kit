@@ -2,5 +2,5 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {},
   "files": [],
-  "references": [{ "path": "packages/react-hook-kit" }]
+  "references": [{ "path": "packages/react-hooks-testing" }, { "path": "packages/react-hook-kit" }]
 }
