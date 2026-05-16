@@ -40,9 +40,6 @@ import { useToggle } from 'react-use-hook-kit/use-toggle'
 ```text
 apps/
   docs/              Astro documentation app with interactive demos
-  compat-react-17/   React 17 compatibility fixture
-  compat-react-18/   React 18 compatibility fixture
-  compat-react-19/   React 19 compatibility fixture
 packages/
   react-use-hook-kit/    Publishable library package
 ```
