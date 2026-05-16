@@ -2,10 +2,5 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {},
   "files": [],
-  "references": [
-    { "path": "apps/compat-react-17" },
-    { "path": "apps/compat-react-18" },
-    { "path": "apps/compat-react-19" },
-    { "path": "packages/react-hook-kit" }
-  ]
+  "references": [{ "path": "packages/react-hook-kit" }]
 }

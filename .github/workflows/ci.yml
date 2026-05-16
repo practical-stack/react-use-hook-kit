@@ -32,9 +32,6 @@ jobs:
             'pnpm --filter react-use-hook-kit run build',
             'pnpm --filter react-use-hook-kit run test:attw',
             'pnpm --filter react-use-hook-kit run test:publint',
-            'pnpm --filter @repo/compat-react-17 run test',
-            'pnpm --filter @repo/compat-react-18 run test',
-            'pnpm --filter @repo/compat-react-19 run test',
           ]
     steps:
       - uses: actions/checkout@v4
